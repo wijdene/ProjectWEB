@@ -52,7 +52,9 @@ namespace MoviesRepository.Data.Repositories
             try
             {
                 string variabl = "tets";
-              //  int max = DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].Select(K[33])
+
+                string variabl2 = "tets2";
+                //  int max = DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].Select(K[33])
 
                 //DataRow _ravi = DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].NewRow();
                 //_ravi["Name"] = category.Name;
