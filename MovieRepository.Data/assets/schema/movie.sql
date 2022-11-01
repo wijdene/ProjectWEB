@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS movie (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  category_id INT NOT NULL,
+  title VARCHAR(32) NOT NULL,
+  year_of_production YEAR NOT NULL,
+  FOREIGN KEY (category_id) REFERENCES category(id) ON DELETE CASCADE
+);

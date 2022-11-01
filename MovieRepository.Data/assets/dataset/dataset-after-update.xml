@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<dataset>
+    <category id="1" name="Action CHANGED" />
+    <category id="2" name="Adventure" />
+    <category id="3" name="Animation" />
+    <category id="4" name="Biography" />
+    <category id="5" name="Comedy" />
+    <category id="6" name="Crime" />
+    <category id="7" name="Documentary" />
+    <category id="8" name="Drama" />
+    <category id="9" name="Family" />
+    <category id="10" name="Fantasy" />
+    <category id="11" name="Film-Noir" />
+    <category id="12" name="History" />
+    <category id="13" name="Horror" />
+    <category id="14" name="Music" />
+    <category id="15" name="Musical" />
+    <category id="16" name="Mystery" />
+    <category id="17" name="Romance" />
+    <category id="18" name="Sci-Fi" />
+    <category id="19" name="Sport" />
+    <category id="20" name="Thriller" />
+    <category id="21" name="War" />
+
+    <movie id="1" category_id="8" title="The Shawshank Redemption" year_of_production="1994" />
+    <movie id="2" category_id="6" title="The Godfather" year_of_production="1972" />
+    <movie id="3" category_id="6" title="The Godfather: Part II" year_of_production="1974" />
+    <movie id="4" category_id="1" title="The Dark Knight" year_of_production="2008" />
+    <movie id="5" category_id="4" title="Goodfellas" year_of_production="1990" />
+    <movie id="6" category_id="1" title="Saving Private Ryan" year_of_production="1998" />
+    <movie id="7" category_id="8" title="Good Will Hunting" year_of_production="1997" />
+    <movie id="8" category_id="20" title="The Departed" year_of_production="2006" />
+    <movie id="9" category_id="5" title="Danny Collins" year_of_production="2015" />
+    <movie id="10" category_id="5"  title="Last Vegas" year_of_production="2013" />
+
+    <actor id="1" name="Tim Robbins" />
+    <actor id="2" name="Morgan Freeman" />
+    <actor id="3" name="Marlon Brando" />
+    <actor id="4" name="Al Pacino" />
+    <actor id="5" name="Robert De Niro" />
+    <actor id="6" name="Christian Bale" />
+    <actor id="7" name="Heath Ledger" />
+    <actor id="8" name="Ray Liotta" />
+    <actor id="9" name="Tom Hanks" />
+    <actor id="10" name="Matt Damon" />
+    <actor id="11" name="Robin Williams" />
+    <actor id="12" name="Ben Affleck" />
+    <actor id="13" name="Leonardo DiCaprio" />
+    <actor id="14" name="Jack Nicholson" />
+    <actor id="15" name="Annette Bening" />
+
+    <movie_actor movie_id="1" actor_id="1" />
+    <movie_actor movie_id="1" actor_id="2" />
+    <movie_actor movie_id="2" actor_id="3" />
+    <movie_actor movie_id="2" actor_id="4" />
+    <movie_actor movie_id="3" actor_id="4" />
+    <movie_actor movie_id="3" actor_id="5" />
+    <movie_actor movie_id="4" actor_id="6" />
+    <movie_actor movie_id="4" actor_id="7" />
+    <movie_actor movie_id="5" actor_id="5" />
+    <movie_actor movie_id="5" actor_id="8" />
+    <movie_actor movie_id="6" actor_id="9" />
+    <movie_actor movie_id="6" actor_id="10" />
+    <movie_actor movie_id="7" actor_id="10" />
+    <movie_actor movie_id="7" actor_id="11" />
+    <movie_actor movie_id="7" actor_id="12" />
+    <movie_actor movie_id="8" actor_id="10" />
+    <movie_actor movie_id="8" actor_id="13" />
+    <movie_actor movie_id="8" actor_id="14" />
+    <movie_actor movie_id="9" actor_id="4" />
+    <movie_actor movie_id="9" actor_id="15" />
+    <movie_actor movie_id="10" actor_id="2" />
+    <movie_actor movie_id="10" actor_id="5" />
+</dataset>

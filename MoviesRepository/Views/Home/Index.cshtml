@@ -1,0 +1,80 @@
+@model MoviesRepository.Models.MoviesReportModel
+@{
+    ViewBag.Title = "Movies Report";
+}
+
+<h1>Movies report</h1>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FromYear)
+                    @Html.TextBoxFor(model => model.FromYear, new { @type = "number", @min = "1", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ToYear)
+                    @Html.TextBoxFor(model => model.ToYear, new { @type = "number", @min = "1", @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoryId)
+                    @Html.DropDownListFor(model => model.CategoryId, Model.Categories, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Limit)
+                    @Html.TextBoxFor(model => model.Limit, new { @type = "number", @min = "1", @class = "form-control" })
+                </div>
+
+                <input type="submit" value="Search" class="btn btn-default" />
+            }
+        </div>
+    </div>
+    @if (Model.SearchResults != null)
+    {
+        <div class="panel panel-default">
+            <table class="table table-striped table-bordered table-responsive table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Year of production</th>
+                        <th>Category Name</th>
+                        <th>Number of actors</th>
+                        <th>Actor names</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.SearchResults)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.YearOfProduction)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CategoryName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumberOfActors)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ActorNames)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    <div>
+
+        <a asp-controller="Category" asp-action="Create">New Category</a>
+    </div>
+</div>
+
+
+

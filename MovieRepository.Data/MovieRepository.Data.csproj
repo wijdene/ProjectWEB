@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="assets\dataset\dataset-after-insert.xml" />
+    <None Remove="assets\dataset\dataset-after-update.xml" />
+    <None Remove="assets\dataset\dataset.xml" />
+    <None Remove="assets\dataset\empty.xml" />
+    <None Remove="assets\dataset\schema.xsd" />
+    <None Remove="assets\schema\actor.sql" />
+    <None Remove="assets\schema\category.sql" />
+    <None Remove="assets\schema\movie.sql" />
+    <None Remove="assets\schema\movie_actor.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="assets\dataset\dataset-after-insert.xml" />
+    <EmbeddedResource Include="assets\dataset\dataset-after-update.xml" />
+    <EmbeddedResource Include="assets\dataset\dataset.xml" />
+    <EmbeddedResource Include="assets\dataset\empty.xml" />
+    <EmbeddedResource Include="assets\dataset\schema.xsd" />
+    <EmbeddedResource Include="assets\schema\actor.sql" />
+    <EmbeddedResource Include="assets\schema\category.sql" />
+    <EmbeddedResource Include="assets\schema\movie.sql" />
+    <EmbeddedResource Include="assets\schema\movie_actor.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="2.2.0" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.109.2" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="dataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="category">
+          <xs:complexType>
+              <xs:attribute name="id" type="xs:long" />
+            <xs:attribute name="name" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="actor">
+          <xs:complexType>
+            <xs:attribute name="id" type="xs:long" />
+            <xs:attribute name="name" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="movie">
+          <xs:complexType>
+            <xs:attribute name="id" type="xs:long" />
+            <xs:attribute name="category_id" type="xs:int" />
+            <xs:attribute name="title" type="xs:string" />
+            <xs:attribute name="year_of_production" type="xs:long" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="movie_actor">
+          <xs:complexType>
+            <xs:attribute name="movie_id" type="xs:long" />
+            <xs:attribute name="actor_id" type="xs:long" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
