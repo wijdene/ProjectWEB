@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MovieRepository.Data.Helpers;
 using MoviesRepository.Data.Repositories;
+using MoviesRepository.Models;
 
 namespace MoviesRepository
 {
@@ -32,6 +35,8 @@ namespace MoviesRepository
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+
+            services.AddDbContext<HelperContext>(options => options.UseSqlite("Data Source=:memory:"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddTransient<ICategoryRepository, CategoryRepository>();

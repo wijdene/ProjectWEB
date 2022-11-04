@@ -37,20 +37,6 @@ namespace MoviesRepository.Data.Helpers
             return dataSet;
         }
 
-        //private static void InsertDataSet(string data)
-        //{
-        //    DataSet dataSet = new DataSet();
-        //    using (var schemaReader = new StringReader(DbHelper.ReadResource("assets.dataset.schema.xsd")))
-        //    {
-        //        dataSet.ReadXmlSchema(schemaReader);
-        //    }
 
-        //    using (var dataReader = new StringReader(data))
-        //    {
-        //        dataSet.ReadXml(dataReader);
-        //    }
-
-            
-        //}
     }
 }

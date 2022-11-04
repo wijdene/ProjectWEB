@@ -14,6 +14,9 @@ namespace MoviesRepository.Data.Models
         public string Title { get; set; }
         public int YearOfProduction { get; set; }
 
+
+
+
         public override bool Equals(object obj)
         {
             if (object.ReferenceEquals(this, obj))

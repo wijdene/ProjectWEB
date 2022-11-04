@@ -9,6 +9,11 @@ namespace MoviesRepository.Controllers
 {
     public class HomeController : BaseController
     {
+        //ICategoryRepository _repo;
+        //public HomeController(ICategoryRepository _repo)
+        //{
+        //    this._repo = _repo; ;
+
         [HttpGet]
         public ActionResult Index()
         {

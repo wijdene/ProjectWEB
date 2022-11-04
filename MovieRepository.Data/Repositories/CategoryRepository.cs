@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using MoviesRepository.Data.Helpers;
 using System.Data;
 using System.Linq;
+using MovieRepository.Data.Helpers;
 
 namespace MoviesRepository.Data.Repositories
 {
@@ -12,15 +13,17 @@ namespace MoviesRepository.Data.Repositories
     {
         private SQLiteConnection connection;
         //DataSet dataSet = new DataSet();
+        //HelperContext dbcontext ;
         public CategoryRepository(SQLiteConnection connection)
         {
             this.connection = connection;
-            
+
+
         }
-        //public CategoryRepository(SQLiteConnection connection, DataSet dataSet)
+        //public CategoryRepository(SQLiteConnection connection, HelperContext dbcontext)
         //{
         //    this.connection = connection;
-        //    this.dataSet = dataSet;
+        //    this.dbcontext = dbcontext;
         //}
 
 
@@ -32,7 +35,7 @@ namespace MoviesRepository.Data.Repositories
                 // if (dataSet.Tables[0].Rows.Count > 0)
                 //{
                 //DataRow row = this.dataSet.Tables[0].Select("name = '" + name+ "'").FirstOrDefault();
-                DataRow row = DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].Select("name = '" + name + "'").FirstOrDefault();
+                DataRow row = DbHelper.GetDataSetTable(connection, "select * from category  where name = '" + name + "'").Tables[0].Select().FirstOrDefault();
                 Category category = ConvertRows(row);
 
 
@@ -51,19 +54,35 @@ namespace MoviesRepository.Data.Repositories
 
             try
             {
-                string variabl = "tets";
+                //    string variabl = "tets";
 
-                string variabl2 = "tets2";
-                string branch = "branch";
+                //    string variabl2 = "tets2";
+                //    string branch = "branch";
 
                 //  int max = DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].Select(K[33])
 
                 //DataRow _ravi = DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].NewRow();
                 //_ravi["Name"] = category.Name;
-                //_ravi["Id"] =22;
-                DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].Rows.Add(22, category.Name);
-                DataSetHelper.CreateFlatXMLDataSettDefault().AcceptChanges();
-                return true;
+                //_ravi["Id"] = 50;
+                string comd = "";
+                if (category.Id == 0)
+                {
+
+                    int maxexistee = FindAll().Max(l => l.Id);
+                    maxexistee++;
+                     comd = "insert into category (Id,Name) values (" + maxexistee + ",'" + category.Name + "')";
+                    //DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].Rows.Add(_ravi);
+                    //DataSetHelper.CreateFlatXMLDataSettDefault().AcceptChanges();
+                }
+                else
+                {
+
+                     comd = "update  category set Name ='" + category.Name + "' where Id="+ category.Id +"";
+
+
+                }
+                bool logic= DbHelper.excuteCmd(connection,comd);
+                return logic;
 
             }
 
@@ -104,7 +123,7 @@ namespace MoviesRepository.Data.Repositories
                 // if (dataSet.Tables[0].Rows.Count > 0)
                 //{
 
-              return  DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].Rows.Count;
+              return DbHelper.GetDataSetTable(connection, "select * from category ").Tables[0].Rows.Count;
                // return this.dataSet.Tables[0].Rows.Count;
 
                 //}
@@ -125,7 +144,7 @@ namespace MoviesRepository.Data.Repositories
                 //{
                 //DataRow row = this.dataSet.Tables[0].Select("Id == " + id).FirstOrDefault();
 
-                DataRow row= DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].Select("Id =" + id).FirstOrDefault();
+                DataRow row= DbHelper.GetDataSetTable(connection, "select * from category where Id = " +id+"").Tables[0].Select().FirstOrDefault();
                 Category category = ConvertRows(row);
 
 
@@ -149,7 +168,9 @@ namespace MoviesRepository.Data.Repositories
                 //this.dataSet.Tables[0].AsEnumerable().Select(row => new Category(row["Name"].ToString(), int.Parse(row["Id"].ToString())));
 
                 //}
-                return DataSetHelper.CreateFlatXMLDataSettDefault().Tables["category"].AsEnumerable().Select(row => new Category(row["Name"].ToString(), int.Parse(row["Id"].ToString())));
+               //return dbcontext.Category.AsEnumerable();
+
+                return DbHelper.GetDataSetTable(connection, "select * from category ").Tables[0].AsEnumerable().Select(row => new Category(row["Name"].ToString(), int.Parse(row["Id"].ToString())));
 
                 //}
                 // else
